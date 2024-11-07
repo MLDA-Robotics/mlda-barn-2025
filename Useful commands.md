@@ -58,6 +58,22 @@ docker run --rm -dt --name barn \
 
 ## ROS
 
+- Run environment
+```shell
+python run_rviz_auto_start.py --world_idx 0
+python run_rviz_kul.py --world_idx 0
+python run_rviz_imit.py --world_idx 0
+rostopic hz /cmd_vel
+rostopic hz /front/scan
+```
+
+- Compile ROS Setup
+```shell
+cd /jackal_ws
+catkin_make
+source devel/setup.bash
+```
+
 - Clear map
 
 ```shell
