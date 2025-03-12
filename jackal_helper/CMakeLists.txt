@@ -18,6 +18,11 @@ find_package(catkin REQUIRED COMPONENTS
     geometry_msgs
 )
 
+add_message_files(
+  FILES
+  ResultData.msg
+)
+
 include(FindBoost)
 find_package(Boost ${MIN_BOOST_VERSION} REQUIRED system filesystem regex)
 find_package(Protobuf REQUIRED)
@@ -74,10 +79,10 @@ find_package(Protobuf REQUIRED)
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+   DEPENDENCIES
+   std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
