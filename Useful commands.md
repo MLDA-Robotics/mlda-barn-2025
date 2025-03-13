@@ -25,24 +25,6 @@ docker run --rm -dt --name barn2025 \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-v ~/mlda-barn-2025:/jackal_ws/src/mlda-barn-2025 \
 	barn2025:latest
-
-
-docker run --rm -dt --name barn \
-	--gpus all \
-	-e DISPLAY="$DISPLAY" \
-	-e QT_X11_NO_MITSHM=1 \
-	-e LIBGL_ALWAYS_SOFTWARE=1 \
-	-e NVIDIA_DRIVER_CAPABILITIES=all \
-	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	mldarobotics/barn2025:latest
-
-docker run --rm -dt --name barn \
-	-e DISPLAY=":1" \
-	-e QT_X11_NO_MITSHM=1 \
-	-e LIBGL_ALWAYS_SOFTWARE=1 \
-	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	barn2025:latest
-
 ```
 
 ## ROS
@@ -50,6 +32,7 @@ docker run --rm -dt --name barn \
 - Run environment
 ```shell
 python run_rviz_kul.py --world_idx 300
+python check_cuda_gpu.py 
 rostopic hz /cmd_vel
 rostopic hz /front/scan
 ```
